@@ -9,8 +9,8 @@ import UIKit
 
 class MainViewController: UITableViewController {
 
-    let restaurantNames = ["Burger Heroes","Kitchen", "Дастархан", "X.O", "Балкан Гриль", "Morris Pub","Вкусные истории", "Классик", "Love&Life","Шок","Бочка"
-    ]
+  
+    var places = Place.getPlaces()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -23,22 +23,28 @@ class MainViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return restaurantNames.count
+        return places.count
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath) as! CustomTableViewCell
-        cell.nameLabel.text = restaurantNames[indexPath.row]
-        cell.imageOfPlase?.image = UIImage(named: restaurantNames[indexPath.row])
+        
+        let place = places[indexPath.row]
+        
+        cell.nameLabel.text = place.name
+        cell.lacationLabel.text = place.location
+        cell.tybeLabel.text = place.type
+        
+        if place.image == nil {
+            cell.imageOfPlase?.image = UIImage(named: place.restaurantImage!)
+        } else {
+            cell.imageOfPlase?.image = place.image
+        }
+        
+        
         cell.imageOfPlase?.layer.cornerRadius = cell.imageOfPlase.frame.size.height / 2
         cell.imageOfPlase?.clipsToBounds = true
         return cell
-    }
-    
-    // MARK: - Table View Delegete
-    
-    override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 85
     }
     
     /*
@@ -51,4 +57,14 @@ class MainViewController: UITableViewController {
     }
     */
 
+    @IBAction func unwindSegue(_ segue: UIStoryboardSegue){
+        
+        
+        guard let newPlaceVC = segue.source as? NewPlaceViewController else {return}
+            
+            newPlaceVC.saveNewPlacee()
+            places.append(newPlaceVC.newPlace!)
+            tableView.reloadData()
+            
+    }
 }
