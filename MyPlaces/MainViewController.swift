@@ -6,24 +6,24 @@
 //
 
 import UIKit
+import RealmSwift
 
 class MainViewController: UITableViewController {
 
   
-    var places = Place.getPlaces()
+    var places: Results<Place>!
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        
+        places = realm.objects(Place.self)
     }
 
     // MARK: - Table view data source
 
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of rows
-        return places.count
+        return places.isEmpty ? 0 : places.count
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -34,12 +34,7 @@ class MainViewController: UITableViewController {
         cell.nameLabel.text = place.name
         cell.lacationLabel.text = place.location
         cell.tybeLabel.text = place.type
-        
-        if place.image == nil {
-            cell.imageOfPlase?.image = UIImage(named: place.restaurantImage!)
-        } else {
-            cell.imageOfPlase?.image = place.image
-        }
+        cell.imageOfPlase.image = UIImage(data: place.imageData!)
         
         
         cell.imageOfPlase?.layer.cornerRadius = cell.imageOfPlase.frame.size.height / 2
@@ -63,7 +58,6 @@ class MainViewController: UITableViewController {
         guard let newPlaceVC = segue.source as? NewPlaceViewController else {return}
             
             newPlaceVC.saveNewPlacee()
-            places.append(newPlaceVC.newPlace!)
             tableView.reloadData()
             
     }
