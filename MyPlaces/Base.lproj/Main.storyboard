@@ -69,7 +69,6 @@
                                     <outlet property="lacationLabel" destination="OWF-rR-odI" id="odY-ee-8un"/>
                                     <outlet property="nameLabel" destination="0Na-Zh-Dig" id="o8L-3e-2tL"/>
                                     <outlet property="tybeLabel" destination="Xzr-9J-OOk" id="1ym-co-pn8"/>
-                                    <segue destination="fME-aZ-u9h" kind="show" identifier="showDetale" id="6fp-5E-KL6"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -95,7 +94,7 @@
             <objects>
                 <tableViewController id="fME-aZ-u9h" customClass="NewPlaceViewController" customModule="MyPlaces" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="plain" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" id="Am6-5j-oKY">
-                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <inset key="separatorInset" minX="16" minY="0.0" maxX="16" maxY="0.0"/>
@@ -243,7 +242,7 @@
                             <outlet property="delegate" destination="fME-aZ-u9h" id="91J-Fn-UfR"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="New Plase" largeTitleDisplayMode="always" id="Vku-27-scP">
+                    <navigationItem key="navigationItem" title="New Plase" id="Vku-27-scP">
                         <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="Gjo-LH-efD">
                             <connections>
                                 <action selector="cancelAction:" destination="fME-aZ-u9h" id="Mph-WZ-Uw7"/>
@@ -266,14 +265,14 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hEg-Hz-5rM" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
                 <exit id="2td-lL-ZGL" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="2353" y="91"/>
+            <point key="canvasLocation" x="2921.3740458015268" y="90.845070422535215"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="2Aw-QD-r7D">
             <objects>
                 <navigationController id="d7X-ub-pvy" sceneMemberID="viewController">
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" largeTitles="YES" id="pvg-ep-Gq9">
-                        <rect key="frame" x="0.0" y="59" width="393" height="96"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="pvg-ep-Gq9">
+                        <rect key="frame" x="0.0" y="59" width="393" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <textAttributes key="titleTextAttributes">
                             <fontDescription key="fontDescription" name="SnellRoundhand-Bold" family="Snell Roundhand" pointSize="26"/>
@@ -303,12 +302,9 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="YtS-Et-T8c" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2189" y="-888"/>
+            <point key="canvasLocation" x="2118" y="91"/>
         </scene>
     </scenes>
-    <inferredMetricsTieBreakers>
-        <segue reference="6fp-5E-KL6"/>
-    </inferredMetricsTieBreakers>
     <resources>
         <image name="Photo" width="204" height="145.66667175292969"/>
         <systemColor name="systemBackgroundColor">

@@ -47,42 +47,23 @@ class MainViewController: UITableViewController {
         return cell
     }
     
-    // MARK: Table view delegate
-    
-    override func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
-        let place = places[indexPath.row]
-        let deleteAction = UITableViewRowAction(style: .default, title: "Delete") { _, _ in
-            StorageManager.deleteObject(place)
-            tableView.deleteRows(at: [indexPath], with: .automatic)
-        }
-        
-        return [deleteAction]
-        
-    }
-    
+    /*
     // MARK: - Navigation
 
+    // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "showDetale" {
-            guard let indexPath = tableView.indexPathForSelectedRow else {return}
-            let place = places[indexPath.row]
-            let newPlaceVC = segue.destination as! NewPlaceViewController
-            newPlaceVC.currentPlace = place
-        }
+        // Get the new view controller using segue.destination.
+        // Pass the selected object to the new view controller.
     }
-    
+    */
 
     @IBAction func unwindSegue(_ segue: UIStoryboardSegue){
         
         
         guard let newPlaceVC = segue.source as? NewPlaceViewController else {return}
             
-<<<<<<< Updated upstream
             newPlaceVC.saveNewPlacee()
             places.append(newPlaceVC.newPlace!)
-=======
-            newPlaceVC.savePlace()
->>>>>>> Stashed changes
             tableView.reloadData()
             
     }
