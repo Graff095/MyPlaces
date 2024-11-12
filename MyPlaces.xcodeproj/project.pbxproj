@@ -6,6 +6,10 @@
 	objectVersion = 77;
 	objects = {
 
+/* Begin PBXBuildFile section */
+		410E78752CDCEEB200FC3F3D /* RealmSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 410E78742CDCEEB200FC3F3D /* RealmSwift */; };
+/* End PBXBuildFile section */
+
 /* Begin PBXContainerItemProxy section */
 		4111B1652CCB85C5001A1231 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
@@ -65,6 +69,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				410E78752CDCEEB200FC3F3D /* RealmSwift in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -125,6 +130,7 @@
 			);
 			name = MyPlaces;
 			packageProductDependencies = (
+				410E78742CDCEEB200FC3F3D /* RealmSwift */,
 			);
 			productName = MyPlaces;
 			productReference = 4111B14E2CCB85C4001A1231 /* MyPlaces.app */;
@@ -208,6 +214,9 @@
 			);
 			mainGroup = 4111B1452CCB85C4001A1231;
 			minimizedProjectReferenceProxies = 1;
+			packageReferences = (
+				410E78732CDCEEB200FC3F3D /* XCRemoteSwiftPackageReference "realm-swift" */,
+			);
 			preferredProjectObjectVersion = 77;
 			productRefGroup = 4111B14F2CCB85C4001A1231 /* Products */;
 			projectDirPath = "";
@@ -563,6 +572,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		410E78732CDCEEB200FC3F3D /* XCRemoteSwiftPackageReference "realm-swift" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/realm/realm-swift";
+			requirement = {
+				branch = master;
+				kind = branch;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		410E78742CDCEEB200FC3F3D /* RealmSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 410E78732CDCEEB200FC3F3D /* XCRemoteSwiftPackageReference "realm-swift" */;
+			productName = RealmSwift;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 4111B1462CCB85C4001A1231 /* Project object */;
 }

@@ -9,7 +9,6 @@ import UIKit
 
 class NewPlaceViewController: UITableViewController, UINavigationControllerDelegate {
     
-    var newPlace: Place?
     var imageIsChanged = false
     
     @IBOutlet weak var saveButton: UIBarButtonItem!
@@ -24,7 +23,7 @@ class NewPlaceViewController: UITableViewController, UINavigationControllerDeleg
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         tableView.tableFooterView = UIView()
         saveButton.isEnabled = false
         placeName.addTarget(self, action: #selector(textFieldChanged), for: .editingChanged)
@@ -86,18 +85,20 @@ extension NewPlaceViewController:UITextFieldDelegate{
         
         var image: UIImage?
         
+        
         if imageIsChanged{
             image = placeImage.image
         } else {
             image = UIImage(named: "imagePlaceholder")
         }
     
-        newPlace = Place(name: placeName.text!,
-                         location: placeLocation.text,
-                         type: placeTupe.text,
-                         image: image,
-                         restaurantImage: nil)
+        let imageData = image?.pngData()
         
+        let newPlase = Place(name: placeName.text!,
+                             location: placeLocation.text,
+                             type: placeTupe.text,
+                             imageData: imageData)
+        StorageManager.saveObject(newPlase)
     }
     
 }
