@@ -161,7 +161,7 @@
                             <outlet property="delegate" destination="fME-aZ-u9h" id="91J-Fn-UfR"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="New Plase" largeTitleDisplayMode="always" id="Vku-27-scP">
+                    <navigationItem key="navigationItem" title="New Plase" largeTitleDisplayMode="never" id="Vku-27-scP">
                         <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="Gjo-LH-efD">
                             <connections>
                                 <action selector="cancelAction:" destination="fME-aZ-u9h" id="Mph-WZ-Uw7"/>
@@ -194,17 +194,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" id="x5f-h4-uLu">
-                                <rect key="frame" x="0.0" y="103" width="393" height="32"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <segments>
-                                    <segment title="Date"/>
-                                    <segment title="Name"/>
-                                </segments>
-                                <connections>
-                                    <action selector="sortSelection:" destination="3Es-rX-aXI" eventType="valueChanged" id="U3u-6o-JAh"/>
-                                </connections>
-                            </segmentedControl>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="85" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" id="e12-ny-xb1">
                                 <rect key="frame" x="0.0" y="141" width="393" height="711"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -278,6 +267,17 @@
                                     <outlet property="delegate" destination="3Es-rX-aXI" id="sbX-LQ-Kb3"/>
                                 </connections>
                             </tableView>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" id="x5f-h4-uLu">
+                                <rect key="frame" x="0.0" y="107" width="393" height="32"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <segments>
+                                    <segment title="Date"/>
+                                    <segment title="Name"/>
+                                </segments>
+                                <connections>
+                                    <action selector="sortSelection:" destination="3Es-rX-aXI" eventType="valueChanged" id="U3u-6o-JAh"/>
+                                </connections>
+                            </segmentedControl>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="nFz-Uu-kSl"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
