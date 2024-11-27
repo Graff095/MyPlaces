@@ -9,17 +9,16 @@ import UIKit
 
 class NewPlaceViewController: UITableViewController, UINavigationControllerDelegate {
     
-    var currentPlace: Place?
+    var currentPlace: Place!
     var imageIsChanged = false
     
     @IBOutlet weak var saveButton: UIBarButtonItem!
     @IBOutlet weak var placeImage: UIImageView!
     
-
-    
     @IBOutlet weak var placeName: UITextField!
     @IBOutlet weak var placeLocation: UITextField!
     @IBOutlet weak var placeTupe: UITextField!
+    @IBOutlet weak var retingControl: RatingControl!
     
     
     override func viewDidLoad() {
@@ -103,7 +102,7 @@ extension NewPlaceViewController:UITextFieldDelegate{
         let newPlase = Place(name: placeName.text!,
                              location: placeLocation.text,
                              type: placeTupe.text,
-                             imageData: imageData)
+                             imageData: imageData, rating: Double(retingControl.rating))
         
         if currentPlace != nil {
             try! realm.write{
@@ -111,6 +110,7 @@ extension NewPlaceViewController:UITextFieldDelegate{
                 currentPlace?.location = newPlase.location
                 currentPlace?.type = newPlase.type
                 currentPlace?.imageData = newPlase.imageData
+                currentPlace?.rating = newPlase.rating
             }
         } else {
             
@@ -132,6 +132,7 @@ extension NewPlaceViewController:UITextFieldDelegate{
             placeName.text = currentPlace?.name
             placeLocation.text = currentPlace?.location
             placeTupe.text = currentPlace?.type
+            retingControl.rating = Int(currentPlace.rating)
             
         }
     }

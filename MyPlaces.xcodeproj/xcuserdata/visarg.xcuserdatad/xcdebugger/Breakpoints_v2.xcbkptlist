@@ -20,21 +20,5 @@
             landmarkType = "3">
          </BreakpointContent>
       </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "8BB054C1-C200-4183-AB91-F88C7A03A612"
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "MyPlaces/NewPlaceViewController.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "19"
-            endingLineNumber = "19"
-            landmarkName = "NewPlaceViewController"
-            landmarkType = "3">
-         </BreakpointContent>
-      </BreakpointProxy>
    </Breakpoints>
 </Bucket>

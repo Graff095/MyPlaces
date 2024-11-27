@@ -195,6 +195,7 @@
                         <outlet property="placeLocation" destination="0Ay-1y-Tm9" id="69b-tD-h2Q"/>
                         <outlet property="placeName" destination="Ru5-UD-PnU" id="7iR-KV-jVa"/>
                         <outlet property="placeTupe" destination="HXk-7R-oOg" id="ZIe-y4-w0h"/>
+                        <outlet property="retingControl" destination="o4w-jU-FJk" id="KDc-HZ-fHd"/>
                         <outlet property="saveButton" destination="KLX-zc-GPe" id="eWG-B7-c0O"/>
                     </connections>
                 </tableViewController>
