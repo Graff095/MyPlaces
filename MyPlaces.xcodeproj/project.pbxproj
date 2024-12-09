@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		410E78752CDCEEB200FC3F3D /* RealmSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 410E78742CDCEEB200FC3F3D /* RealmSwift */; };
+		411425D62D02E893009A4906 /* Cosmos in Frameworks */ = {isa = PBXBuildFile; productRef = 411425D52D02E893009A4906 /* Cosmos */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -69,6 +70,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				411425D62D02E893009A4906 /* Cosmos in Frameworks */,
 				410E78752CDCEEB200FC3F3D /* RealmSwift in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -131,6 +133,7 @@
 			name = MyPlaces;
 			packageProductDependencies = (
 				410E78742CDCEEB200FC3F3D /* RealmSwift */,
+				411425D52D02E893009A4906 /* Cosmos */,
 			);
 			productName = MyPlaces;
 			productReference = 4111B14E2CCB85C4001A1231 /* MyPlaces.app */;
@@ -216,6 +219,7 @@
 			minimizedProjectReferenceProxies = 1;
 			packageReferences = (
 				410E78732CDCEEB200FC3F3D /* XCRemoteSwiftPackageReference "realm-swift" */,
+				411425D42D02DD8B009A4906 /* XCRemoteSwiftPackageReference "Cosmos" */,
 			);
 			preferredProjectObjectVersion = 77;
 			productRefGroup = 4111B14F2CCB85C4001A1231 /* Products */;
@@ -582,6 +586,14 @@
 				kind = branch;
 			};
 		};
+		411425D42D02DD8B009A4906 /* XCRemoteSwiftPackageReference "Cosmos" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/evgenyneu/Cosmos.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 25.0.1;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -589,6 +601,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 410E78732CDCEEB200FC3F3D /* XCRemoteSwiftPackageReference "realm-swift" */;
 			productName = RealmSwift;
+		};
+		411425D52D02E893009A4906 /* Cosmos */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 411425D42D02DD8B009A4906 /* XCRemoteSwiftPackageReference "Cosmos" */;
+			productName = Cosmos;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

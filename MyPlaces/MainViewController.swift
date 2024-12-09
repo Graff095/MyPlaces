@@ -8,6 +8,7 @@
 import UIKit
 import RealmSwift
 
+
 class MainViewController: UIViewController,UITableViewDelegate, UITableViewDataSource {
     
     private let searchController = UISearchController(searchResultsController: nil)
@@ -25,6 +26,9 @@ class MainViewController: UIViewController,UITableViewDelegate, UITableViewDataS
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var segmentedControl: UISegmentedControl!
     @IBOutlet weak var reversedSortingButton: UIBarButtonItem!
+
+
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -49,27 +53,20 @@ class MainViewController: UIViewController,UITableViewDelegate, UITableViewDataS
          if isFitering{
              return filteredPlaces.count
          }
-        return places.isEmpty ? 0 : places.count
+        return places.count
     }
 
      func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath) as! CustomTableViewCell
         
-         var place = Place()
-         
-         if isFitering{
-             place = filteredPlaces[indexPath.row]
-         } else {
-             place = places[indexPath.row]
-         }
+         let place = isFitering ? filteredPlaces[indexPath.row]: places[indexPath.row]
+       
         cell.nameLabel.text = place.name
         cell.lacationLabel.text = place.location
         cell.tybeLabel.text = place.type
         cell.imageOfPlase.image = UIImage(data: place.imageData!)
+        cell.cosmosView.rating = place.rating
         
-        
-        cell.imageOfPlase?.layer.cornerRadius = cell.imageOfPlase.frame.size.height / 2
-        cell.imageOfPlase?.clipsToBounds = true
         return cell
     }
     
@@ -97,13 +94,7 @@ class MainViewController: UIViewController,UITableViewDelegate, UITableViewDataS
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "showDetall" {
             guard let indexPath = tableView.indexPathForSelectedRow else {return}
-            var place: Place
-            if isFitering{
-                place = filteredPlaces[indexPath.row]
-            } else {
-                place = places[indexPath.row]
-            }
-            
+            let place = isFitering ? filteredPlaces[indexPath.row] : places[indexPath.row]
             let newPlaceVC = segue.destination as! NewPlaceViewController
             newPlaceVC.currentPlace = place
           
@@ -149,6 +140,8 @@ class MainViewController: UIViewController,UITableViewDelegate, UITableViewDataS
         
         tableView.reloadData()
     }
+    
+  
 }
 
 extension MainViewController: UISearchResultsUpdating {
