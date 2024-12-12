@@ -270,6 +270,9 @@
                             <constraint firstItem="CFd-Np-qfZ" firstAttribute="trailing" secondItem="zBh-XQ-rKl" secondAttribute="trailing" constant="40" id="ox0-sC-c3P"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="mapView" destination="Nav-LP-ATP" id="6X8-1p-pqd"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ky8-4i-dKM" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
