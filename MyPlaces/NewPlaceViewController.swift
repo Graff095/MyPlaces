@@ -107,20 +107,22 @@ extension NewPlaceViewController:UITextFieldDelegate{
             return
         }
         let mapVC = segue.destination as! MapViewController
-        mapVC.place = currentPlace
+        mapVC.place.name = placeName.text!
+        mapVC.place.location = placeLocation.text!
+        mapVC.place.type = placeTupe.text!
+        mapVC.place.imageData = placeImage.image?.pngData()
     }
     
     
     func savePlace () {
         
-        var image: UIImage?
         
         
-        if imageIsChanged{
-            image = placeImage.image
-        } else {
-            image = UIImage(named: "imagePlaceholder")
-        }
+        // 1 варинат
+        
+        let image = imageIsChanged ? placeImage.image :  UIImage(named: "imagePlaceholder")
+        
+        
     
         let imageData = image?.pngData()
         
@@ -135,9 +137,17 @@ extension NewPlaceViewController:UITextFieldDelegate{
                 currentPlace?.location = newPlase.location
                 currentPlace?.type = newPlase.type
                 currentPlace?.imageData = newPlase.imageData
-                currentPlace?.rating = newPlase.rating
+                
+                // Обновляем рейтинг только если он изменился
+                if cosmosView.rating != currentPlace.rating {
+                    currentPlace?.rating = newPlase.rating
+                            }
+                
+                
             }
-        } else {
+        }
+        
+        else {
             
             StorageManager.saveObject(newPlase)
         }
