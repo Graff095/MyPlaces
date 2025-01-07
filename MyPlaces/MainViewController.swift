@@ -76,17 +76,35 @@ class MainViewController: UIViewController,UITableViewDelegate, UITableViewDataS
         tableView.deselectRow(at: indexPath, animated: true)
     }
     
-     func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
-        
+    func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
+        // Получаем заметку
         let place = places[indexPath.row]
-        let deletAction = UITableViewRowAction(style: .default, title: "Delete") { _, _ in
-            
-            StorageManager.deleteObject(place)
-            tableView.deleteRows(at: [indexPath], with: .automatic)
-        }
         
-        return [deletAction]
+        // Создаем действие "Удалить"
+        let deleteAction = UIContextualAction(style: .destructive, title: "Delete") { _, _, completionHandler in
+            // Удаляем объект из хранилища
+            StorageManager.deleteObject(place)
+            // Удаляем строку из таблицы
+            tableView.deleteRows(at: [indexPath], with: .automatic)
+            // Уведомляем, что действие завершено
+            completionHandler(true)
+        }
+        deleteAction.image = UIImage(systemName: "trash")
+        // Возвращаем конфигурацию с действием
+        return UISwipeActionsConfiguration(actions: [deleteAction])
     }
+    
+//     func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
+//        
+//        let place = places[indexPath.row]
+//        let deletAction = UITableViewRowAction(style: .default, title: "Delete") { _, _ in
+//            
+//            StorageManager.deleteObject(place)
+//            tableView.deleteRows(at: [indexPath], with: .automatic)
+//        }
+//        
+//        return [deletAction]
+//    }
     
     
     // MARK: - Navigation
