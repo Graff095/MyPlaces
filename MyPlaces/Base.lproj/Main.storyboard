@@ -131,7 +131,7 @@
                                                     <state key="normal" title="Button"/>
                                                     <buttonConfiguration key="configuration" style="plain" image="Placeholder"/>
                                                     <connections>
-                                                        <segue destination="f2o-lB-gYj" kind="presentation" identifier="getAdress" id="kYy-NY-gmL"/>
+                                                        <segue destination="f2o-lB-gYj" kind="presentation" identifier="getAddress" id="kYy-NY-gmL"/>
                                                     </connections>
                                                 </button>
                                             </subviews>
@@ -332,7 +332,7 @@
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="adressLabel" destination="Hls-cH-xBU" id="glU-ld-bK3"/>
+                        <outlet property="addressLabel" destination="Hls-cH-xBU" id="glU-ld-bK3"/>
                         <outlet property="doneButton" destination="b1M-zN-cOP" id="bCg-cY-ruN"/>
                         <outlet property="mapPinImage" destination="xTA-SJ-ebi" id="wzS-xD-5Vx"/>
                         <outlet property="mapView" destination="Nav-LP-ATP" id="6X8-1p-pqd"/>
@@ -516,7 +516,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="a7r-Mw-ogr"/>
+        <segue reference="kYy-NY-gmL"/>
         <segue reference="5Z0-VH-gq6"/>
     </inferredMetricsTieBreakers>
     <resources>
